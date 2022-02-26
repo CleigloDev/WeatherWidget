@@ -1,3 +1,11 @@
 .weather-list {
     height: 60%;
 }
+
+@media screen and (max-width: 600px) {
+    
+    .weather-list{
+        height: 45%;
+    }
+
+}

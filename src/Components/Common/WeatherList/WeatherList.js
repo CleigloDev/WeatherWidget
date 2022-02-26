@@ -6,7 +6,7 @@ import './WeatherList.scss';
 
 export default function WeatherList() {
     
-    const data = [{title: "Today", items: [{title: "ciao"}, {title: "ciao1"}, {title: "ciao"}, {title: "ciao1"}]}, 
+    const data = [{title: "Today", items: [{title: "ciao"}, {title: "ciao1"}, {title: "ciao"}, {title: "ciao1"}, {title: "ciao1"}, {title: "ciao"}, {title: "ciao1"}]}, 
         {title: "Week", items: [{title: "ciao"}]}];
 
     const render = () => {
