@@ -13,7 +13,7 @@
     padding-right: 2vw;
     
     > p {
-        font-size: 4.5vw;
+        font-size: 5vw;
         margin: 0;
         color: #122430;
     }
@@ -28,7 +28,7 @@
     padding-right: 2vw;
 
     > p {
-        font-size: 2vw;
+        font-size: 3vw;
         margin: 0;
         color: #98C6E8;
     }
@@ -39,14 +39,22 @@
     .city-name {
         
         > p {
-            font-size: 7vw;
+            font-size: 6.5vw;
         }
     }
 
     .state-name {
 
         > p {
-            font-size: 4vw;
+            font-size: 3.5vw;
         }
     }
+}
+
+@media screen and (max-width: 600px) {
+
+    .city-info {
+        height: 15%;
+    }
+    
 }
