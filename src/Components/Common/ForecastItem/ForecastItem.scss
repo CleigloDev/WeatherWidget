@@ -1,0 +1,36 @@
+.forecast-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #e8e8e8;
+
+    > p {
+        margin: 0;
+        color: black;
+    }
+}
+
+.weather-info-day {
+    display: flex;
+    flex-direction: row;  
+    justify-content: center;
+    align-items: center;
+
+    > p {
+        margin: 0;
+        color: black;
+    }
+
+    > .weather-icon > img {
+        padding: 0;
+        width: 50%;
+        height: 50%;
+    }
+}

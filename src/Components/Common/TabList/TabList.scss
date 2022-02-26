@@ -12,6 +12,10 @@
 
     > .tab-rendering {
         margin-left: 2rem;
+
+        > p {
+            color: black;
+        }
     }
 
     > .tab-selected {
@@ -24,9 +28,5 @@
 .content-list {
     display: flex;
     flex-direction: column;
-}
-
-
-p {
-    color: black !important;
+    padding-top: 15px;
 }

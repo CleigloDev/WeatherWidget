@@ -9,13 +9,15 @@ import snowy from "../../../Assets/Icons/snowy.png";
 import sunny from "../../../Assets/Icons/sunny.png";
 import unknown from "../../../Assets/Icons/unknown.png";
 
-export default function WeatherIcon() {
+export default function WeatherIcon(props) {
     
 
     const render = () => {
+        const { mainDiv, icon } = props;
+
         return (
-            <div className='weather-icon'>
-                <img src={sunny} className="icon"/>
+            <div className={mainDiv || 'weather-icon'}>
+                <img src={sunny} className={icon || 'icon'}/>
             </div>
         );
     }

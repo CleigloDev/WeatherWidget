@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import ForecastItem from '../ForecastItem/ForecastItem';
 import './TabList.scss';
 
 export default function TabList(props) {
@@ -20,9 +21,7 @@ export default function TabList(props) {
     const _renderContent = (aTabs, nSelectedTab) => {
         return aTabs[nSelectedTab].items.map((oItem, index) => {
             return (
-                <div key={index}>
-                    <p>{oItem.title}</p>
-                </div>
+                <ForecastItem key={index} />
             );
         });
     };
