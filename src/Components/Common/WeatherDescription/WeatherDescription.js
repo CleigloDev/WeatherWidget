@@ -1,13 +1,12 @@
-import { useState } from 'react';
 import './WeatherDescription.scss';
 
-export default function WeatherDescription() {
+export default function WeatherDescription(props) {
     
 
     const render = () => {
         return (
             <div className='weather-description'>
-                <p>Partly Cloudy</p>
+                <p>{props.description}</p>
             </div>
         );
     }

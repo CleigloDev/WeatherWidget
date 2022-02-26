@@ -8,7 +8,7 @@ import TabList from '../TabList/TabList';
 
 import './WeatherList.scss';
 
-export default function WeatherList() {
+export default function WeatherList(props) {
 
     const [forecastInfo, setForecastInfo] = useState([]);
     const [foreCastWeek, setForecastWeekInfo] = useState([]);
@@ -62,13 +62,27 @@ export default function WeatherList() {
             {
                 title: "Today",
                 items: forecastInfo.map((oForecastInfo, index) => {
+                    if(index === 0) {
+                        // prevent currentInfo to be different from forecast on now
+                        const { currentInfo } = props;
+                        const temperature = Utils.formatTemperature(currentInfo.temp);
+                        const icon = Utils.formatIcon(currentInfo.weather.code);
+
+                        return <ForecastItem
+                            key={index}
+                            time={'Now'}
+                            temperature={temperature}
+                            weatherIcon={icon}
+                            isSmall={true} />
+                    }
+
                     const temperature = Utils.formatTemperature(oForecastInfo.temp);
                     const icon = Utils.formatIcon(oForecastInfo.weather.code);
                     const time = Utils.formatTime(oForecastInfo.timestamp_utc);
 
                     return <ForecastItem
                         key={index}
-                        time={index === 0 ? 'Now' : time}
+                        time={time}
                         temperature={temperature}
                         weatherIcon={icon}
                         isSmall={true} />

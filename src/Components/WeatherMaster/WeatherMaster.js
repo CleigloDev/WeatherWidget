@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import Utils from '../../modules/Utils';
 
 import DynamicComponent from '../Common/HideOnScreenChange/DynamicComponent';
 import CityInfo from '../Common/CityInfo/CityInfo';
@@ -12,16 +12,16 @@ export default function WeatherMaster(props) {
 
     const render = () => {
 
-        const { weatherIcon } = props;
+        const { city_name: cityName, weather } = props.currentInfo;
 
         return (
             <div className='master-main-div'>
                 <DynamicComponent mediaQuery={"(min-width:600px)"}>
-                    <CityInfo/>
+                    <CityInfo cityName={cityName}/>
                 </DynamicComponent>
-                    <WeatherIcon weatherIcon={weatherIcon}/>
-                <WeatherDescription />
-                <WeatherList />
+                <WeatherIcon weatherIcon={Utils.formatIcon(weather.code)}/>
+                <WeatherDescription description={weather.description}/>
+                <WeatherList currentInfo={props.currentInfo}/>
             </div>
         );
     }

@@ -1,5 +1,9 @@
 const Utils = () => {
 
+    const timestampToDate = (nTimeStamp) => {
+        return new Date(nTimeStamp*1000);
+    };
+
     const formatTemperature = (nTemperature) => {
         return nTemperature && `${nTemperature.toString().split(".")[0]}°`
     };
@@ -69,6 +73,7 @@ const Utils = () => {
     }
 
     return {
+        timestampToDate,
         formatTemperature,
         formatIcon,
         formatTime,

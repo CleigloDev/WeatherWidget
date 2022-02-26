@@ -2,15 +2,21 @@ import Utils from '../../../modules/Utils';
 
 import './GeneralInfo.scss';
 
-export default function GeneralInfo() {
+export default function GeneralInfo(props) {
 
     const _mapTime = () => {
-        return "8:43 a.m." //Utils.formatTime(props.date);
+        const date = Utils.timestampToDate(props.timestamp);
+        return Utils.formatTime(date);
     };
 
     const _mapDate = () => {
-        return "Monday, November 16th" //Utils.formatDateDetail(props.date);
+        const date = Utils.timestampToDate(props.timestamp);
+        return Utils.formatDateDetail(date);
     };
+
+    const _mapTemperature = () => {
+        return Utils.formatTemperature(props.temp);
+    }
 
     const render = () => {
         return (
@@ -25,7 +31,7 @@ export default function GeneralInfo() {
                 </div>
                 <div className='temperature'>
                     <p>
-                        60°
+                        {_mapTemperature()}
                     </p>
                 </div>
             </div>

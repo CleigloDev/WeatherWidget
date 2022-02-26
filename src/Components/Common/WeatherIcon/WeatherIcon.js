@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './WeatherIcon.scss';
 
 import cloudy from "../../../Assets/Icons/cloudy.png";
