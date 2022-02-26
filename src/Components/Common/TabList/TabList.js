@@ -24,7 +24,10 @@ export default function TabList(props) {
     };
 
     const _changeSelected = (index) => {
+        if(selectedTab === index) return;
+        
         setSelectedTab(index);
+        props.onSelectTab(index);
     };
 
     const render = () => {
