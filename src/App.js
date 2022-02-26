@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import WeatherManager from './modules/WeatherManager';
+import RequestHandler from './modules/WeatherUtils/RequestHandler';
 
 import Master from './Components/WeatherMaster/WeatherMaster'
 import Detail from './Components/WeatherDetail/WeatherDetail'
@@ -17,7 +17,7 @@ function App() {
 
   const _getCurrentWeatherInfo = async() => {
     try {
-        const currentInfo = await WeatherManager.getCurrentInfo({
+        const currentInfo = await RequestHandler.getCurrentInfo({
           lat:41.8917707,
           lon:12.5412766
       });

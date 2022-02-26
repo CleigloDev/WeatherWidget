@@ -1,4 +1,4 @@
-const WeatherManager = () => {
+const RequestHandler = () => {
 
     const baseURL = 'http://api.weatherbit.io/v2.0/';
 
@@ -49,4 +49,4 @@ const WeatherManager = () => {
     }
 }
 
-export default WeatherManager();
+export default RequestHandler();

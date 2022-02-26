@@ -1,4 +1,4 @@
-import Utils from '../../../modules/Utils';
+import Utils from '../../../modules/WeatherUtils/Utils';
 
 import './GeneralInfo.scss';
 

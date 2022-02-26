@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import WeatherManager from '../../../modules/WeatherManager';
-import Utils from '../../../modules/Utils';
+import RequestHandler from '../../../modules/WeatherUtils/RequestHandler';
+import Utils from '../../../modules/WeatherUtils/Utils';
 
 import ForecastItem from '../ForecastItem/ForecastItem';
 import TabList from '../TabList/TabList';
@@ -19,7 +19,7 @@ export default function WeatherList(props) {
 
     const _fetchForecastData = async () => {
         try {
-            let weatherInfo = await WeatherManager.getHourlyForecast({
+            let weatherInfo = await RequestHandler.getHourlyForecast({
                 lat: 41.8917707,
                 lon: 12.5412766
             });
@@ -41,7 +41,7 @@ export default function WeatherList(props) {
 
     const _fetchForecastWeekData = async () => {
         try {
-            let weatherInfo = await WeatherManager.getDailyForecast({
+            let weatherInfo = await RequestHandler.getDailyForecast({
                 lat: 41.8917707,
                 lon: 12.5412766
             });
