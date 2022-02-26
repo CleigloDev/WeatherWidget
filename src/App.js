@@ -6,7 +6,7 @@ import './App.scss';
 function App() {
   return (
     <div className="main-div box-shadow">
-      <Master/>
+      <Master weatherIcon={'partlyCloudy'}/>
       <Detail/>
     </div>
   );
