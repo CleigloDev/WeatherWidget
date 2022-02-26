@@ -19,8 +19,9 @@
 
 .weather-info-day {
     display: flex;
+    width: 25%;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 
     > p {
@@ -28,38 +29,14 @@
         color: black;
     }
 
-    > .weather-icon {
-        width: 60%;
-        justify-content: flex-end;
-
-        > img {
-            padding: 0;
-            width: 20%;
-            height: 20%;
-        }
+    > .weather-icon {    
+        width: 3rem;
+        justify-content: space-between;
     }
 }
 
-@media screen and (max-width:1024px){
-
+@media screen and(max-width: 1024px) {
     .weather-info-day {
-
-        > .weather-icon {
-            width: 100%;
-        }
-
+        width: 35%;
     }
-    
-}
-
-@media screen and (max-width:768px){
-
-    .weather-info-day {
-
-        > .weather-icon {
-            width: 100%;
-        }
-
-    }
-    
 }

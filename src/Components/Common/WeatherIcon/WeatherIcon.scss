@@ -6,10 +6,31 @@
     width: 100%;
 }
 
-.icon {
+.icon-large {
     padding-top: 8vh;
     height: 70%;
     width: 70%;
+    object-fit: contain;
+}
+
+.icon-small-sun {
+    padding: 0;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.icon-small-snow {
+    padding: 0;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.icon-small {
+    padding: 0;
+    width: 80%;
+    height: 80%;
     object-fit: contain;
 }
 

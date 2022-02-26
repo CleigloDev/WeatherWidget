@@ -19,7 +19,7 @@ export default function WeatherMaster(props) {
                 <DynamicComponent mediaQuery={"(min-width:600px)"}>
                     <CityInfo/>
                 </DynamicComponent>
-                    <WeatherIcon weatherIcon={weatherIcon|| 'snowy'}/>
+                    <WeatherIcon weatherIcon={weatherIcon}/>
                 <WeatherDescription />
                 <WeatherList />
             </div>

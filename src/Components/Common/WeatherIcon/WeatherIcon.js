@@ -11,38 +11,38 @@ import unknown from "../../../Assets/Icons/unknown.png";
 
 export default function WeatherIcon(props) {
     
-    const _setIcon = (sIconName) => {
+    const _setIcon = (sIconName, bIsSmall) => {
+
         switch(sIconName) {
             case 'sunny':
-                return sunny;
+                return <img src={sunny} className={!bIsSmall ? 'icon-large' : 'icon-small-sun'}/>;
 
             case 'cloudy':
-                return cloudy;
+                return <img src={cloudy} className={!bIsSmall ? 'icon-large' : 'icon-small'}/>;
 
             case 'heavyRain':
-                return heavyRain;
+                return <img src={heavyRain} className={!bIsSmall ? 'icon-large' : 'icon-small'}/>;
 
             case 'partlyCloudy':
-                return partlyCloudy;
+                return <img src={partlyCloudy} className={!bIsSmall ? 'icon-large' : 'icon-small'}/>;
 
             case 'snowy':
-                return snowy;
+                return <img src={snowy} className={!bIsSmall ? 'icon-large' : 'icon-small-snow'}/>;
 
             case 'rainy':
-                return rainy;
+                return <img src={rainy} className={!bIsSmall ? 'icon-large' : 'icon-small'}/>;
 
             default:
-                return unknown;
-
+                return <img src={unknown} className={!bIsSmall ? 'icon-large' : 'icon-small'}/>;
         }
     };
 
     const render = () => {
-        const { mainDiv, icon, weatherIcon } = props;
+        const { mainDiv, weatherIcon, isSmall } = props;
 
         return (
             <div className={mainDiv || 'weather-icon'}>
-                <img src={_setIcon(weatherIcon)} className={icon || 'icon'}/>
+                {_setIcon(weatherIcon, isSmall)}
             </div>
         );
     }
