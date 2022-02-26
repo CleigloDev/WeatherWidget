@@ -3,6 +3,7 @@ import { useState } from 'react';
 import CityInfo from '../Common/CityInfo/CityInfo';
 import WeatherIcon from '../Common/WeatherIcon/WeatherIcon';
 import WeatherDescription from '../Common/WeatherDescription/WeatherDescription';
+import WeatherList from '../Common/WeatherList/WeatherList';
 
 import './WeatherMaster.scss';
 
@@ -22,7 +23,7 @@ export default function WeatherMaster() {
                 }
                 <WeatherIcon />
                 <WeatherDescription />
-                <div className='weather-list'/>
+                <WeatherList />
             </div>
         );
     }
