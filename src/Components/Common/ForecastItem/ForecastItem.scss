@@ -3,8 +3,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-right: 2rem;
-    margin-left: 2rem;
+    margin-right: 3rem;
+    margin-left: 3rem;
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px;
@@ -19,8 +19,8 @@
 
 .weather-info-day {
     display: flex;
-    flex-direction: row;  
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
 
     > p {
@@ -28,9 +28,38 @@
         color: black;
     }
 
-    > .weather-icon > img {
-        padding: 0;
-        width: 50%;
-        height: 50%;
+    > .weather-icon {
+        width: 60%;
+        justify-content: flex-end;
+
+        > img {
+            padding: 0;
+            width: 20%;
+            height: 20%;
+        }
     }
+}
+
+@media screen and (max-width:1024px){
+
+    .weather-info-day {
+
+        > .weather-icon {
+            width: 100%;
+        }
+
+    }
+    
+}
+
+@media screen and (max-width:768px){
+
+    .weather-info-day {
+
+        > .weather-icon {
+            width: 100%;
+        }
+
+    }
+    
 }

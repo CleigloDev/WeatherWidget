@@ -11,13 +11,38 @@ import unknown from "../../../Assets/Icons/unknown.png";
 
 export default function WeatherIcon(props) {
     
+    const _setIcon = (sIconName) => {
+        switch(sIconName) {
+            case 'sunny':
+                return sunny;
+
+            case 'cloudy':
+                return cloudy;
+
+            case 'heavyRain':
+                return heavyRain;
+
+            case 'partlyCloudy':
+                return partlyCloudy;
+
+            case 'snowy':
+                return snowy;
+
+            case 'rainy':
+                return rainy;
+
+            default:
+                return unknown;
+
+        }
+    };
 
     const render = () => {
-        const { mainDiv, icon } = props;
+        const { mainDiv, icon, weatherIcon } = props;
 
         return (
             <div className={mainDiv || 'weather-icon'}>
-                <img src={sunny} className={icon || 'icon'}/>
+                <img src={_setIcon(weatherIcon)} className={icon || 'icon'}/>
             </div>
         );
     }

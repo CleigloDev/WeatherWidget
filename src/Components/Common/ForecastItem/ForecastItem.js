@@ -11,10 +11,10 @@ export default function ForecastItem(props) {
 
         return (
             <div className='forecast-item'>
-                <p>{time}</p>
+                <p>{time}Now</p>
                 <div className='weather-info-day'>
-                    <WeatherIcon weatherIcon={weatherIcon}/>
-                    <p>{temperature}</p>
+                    <WeatherIcon weatherIcon={weatherIcon || 'sunny'}/>
+                    <p>{temperature}60°</p>
                 </div>
             </div>
         );

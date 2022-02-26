@@ -8,15 +8,18 @@ import WeatherList from '../Common/WeatherList/WeatherList';
 
 import './WeatherMaster.scss';
 
-export default function WeatherMaster() {
+export default function WeatherMaster(props) {
 
     const render = () => {
+
+        const { weatherIcon } = props;
+
         return (
             <div className='master-main-div'>
                 <DynamicComponent mediaQuery={"(min-width:600px)"}>
                     <CityInfo/>
                 </DynamicComponent>
-                <WeatherIcon />
+                    <WeatherIcon weatherIcon={weatherIcon|| 'snowy'}/>
                 <WeatherDescription />
                 <WeatherList />
             </div>
