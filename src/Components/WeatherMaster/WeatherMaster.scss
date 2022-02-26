@@ -1,0 +1,18 @@
+.master-main-div {
+    width: 35%;
+    height: 100%;
+    background-color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+    .master-main-div {
+        width: 45%;
+    }
+}
+
+@media screen and(max-width: 600px) {
+    .master-main-div {
+        width: 100%;
+    }
+}

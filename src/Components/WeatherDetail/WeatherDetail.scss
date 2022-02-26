@@ -1,0 +1,23 @@
+.detail-main-div {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: 100%;
+    justify-content: space-evenly;
+	background-image: url('../../Assets/Images/background-image.jpeg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .detail-main-div {
+        width: 55%;
+    }
+}
+
+@media screen and(max-width: 600px) {
+    .detail-main-div {
+        display: none;
+    }
+}

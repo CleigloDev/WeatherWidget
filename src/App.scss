@@ -1,0 +1,17 @@
+$black_56: rgba(0,0,0,0.56);
+
+.main-div {
+	display: flex;
+	flex-direction: row;
+	margin-top: 5vh;
+	height: 85vh;
+	width: 80vw;
+}
+
+.box-shadow {
+	box-shadow: -1px 5px 10px 0 $black_56;
+}
+
+p {
+	color: white;
+}
