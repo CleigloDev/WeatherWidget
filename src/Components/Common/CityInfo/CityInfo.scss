@@ -1,53 +1,31 @@
 .city-info {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     height: 30%;
+    margin-right: 3vw;
 }
 
 .city-name {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-    height: 60%;
-    padding-right: 2vw;
-    
-    > p {
-        font-size: 5vw;
-        margin: 0;
-        color: #122430;
-    }
+    font-size: 5vw;
+    margin: 0;
+    color: #122430;
 }
 
 .state-name {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-start;
-    height: 35%;
-    padding-right: 2vw;
-
-    > p {
-        font-size: 3vw;
-        margin: 0;
-        color: #98C6E8;
-    }
+    font-size: 2vw;
+    margin: 0;
+    color: #98C6E8;
 }
 
 @media screen and (max-width: 768px) {
 
     .city-name {
-        
-        > p {
-            font-size: 6.5vw;
-        }
+        font-size: 6.5vw;
     }
 
     .state-name {
-
-        > p {
-            font-size: 3.5vw;
-        }
+        font-size: 3.5vw;
     }
 }
 
