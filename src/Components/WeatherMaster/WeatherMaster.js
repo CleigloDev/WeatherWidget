@@ -21,7 +21,7 @@ export default function WeatherMaster(props) {
                 </DynamicComponent>
                 <WeatherIcon weatherIcon={Utils.formatIcon(weather.code)}/>
                 <WeatherDescription description={weather.description}/>
-                <WeatherList currentInfo={props.currentInfo}/>
+                <WeatherList currentInfo={props.currentInfo} location={props.location}/>
             </div>
         );
     }

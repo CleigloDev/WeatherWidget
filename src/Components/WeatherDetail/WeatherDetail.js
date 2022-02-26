@@ -8,12 +8,12 @@ export default function WeatherDetail(props) {
 
     const render = () => {
 
-        const { city_name: cityName, ts: timestamp, temp } = props.currentInfo;
+        const { city_name: cityName, temp } = props.currentInfo;
 
         return (
             <div className='detail-main-div'>
                 <CityInfo cityName={cityName}/>
-                <GeneralInfo timestamp={timestamp} temp={temp}/>
+                <GeneralInfo temp={temp}/>
             </div>
         );
     }

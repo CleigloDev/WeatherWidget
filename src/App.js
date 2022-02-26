@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import RequestHandler from './modules/WeatherUtils/RequestHandler';
+import LocationHandler from './modules/LocationUtils/LocationHandler';
 
 import Master from './Components/WeatherMaster/WeatherMaster'
 import Detail from './Components/WeatherDetail/WeatherDetail'
@@ -10,29 +11,40 @@ import './App.scss';
 function App() {
 
   const [currentInfo, setCurrentInfo] = useState(null);
+  const [userLocation, setCurrentLocation] = useState(null);
 
   useEffect(() => {
-    _getCurrentWeatherInfo();
+    _getUserLocation();
   }, []);
 
-  const _getCurrentWeatherInfo = async() => {
+  const _getCurrentWeatherInfo = async (location) => {
     try {
-        const currentInfo = await RequestHandler.getCurrentInfo({
-          lat:41.8917707,
-          lon:12.5412766
+      const currentInfo = await RequestHandler.getCurrentInfo({
+        lat: location.latitude,
+        lon: location.longitude
       });
-      if(currentInfo && currentInfo.data && currentInfo.data[0]) setCurrentInfo(currentInfo.data[0]);
-    } catch(error) {
+      if (currentInfo && currentInfo.data && currentInfo.data[0]) setCurrentInfo(currentInfo.data[0]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const _getUserLocation = async () => {
+    try {
+      const location = await LocationHandler.getLocation();
+      setCurrentLocation(location);
+      _getCurrentWeatherInfo(location);
+    } catch (error) {
       console.error(error);
     }
   };
 
   return (
     <div>
-      { currentInfo ?
+      {currentInfo && userLocation ?
         <div className="main-div box-shadow">
-          <Master currentInfo={currentInfo}/>
-          <Detail currentInfo={currentInfo}/> 
+          <Master currentInfo={currentInfo} location={userLocation}/>
+          <Detail currentInfo={currentInfo} />
         </div>
         : null
       }

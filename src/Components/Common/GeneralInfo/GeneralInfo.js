@@ -5,12 +5,12 @@ import './GeneralInfo.scss';
 export default function GeneralInfo(props) {
 
     const _mapTime = () => {
-        const date = Utils.timestampToDate(props.timestamp);
+        const date = new Date();
         return Utils.formatTime(date);
     };
 
     const _mapDate = () => {
-        const date = Utils.timestampToDate(props.timestamp);
+        const date = new Date();
         return Utils.formatDateDetail(date);
     };
 

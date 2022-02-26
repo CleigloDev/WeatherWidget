@@ -20,8 +20,8 @@ export default function WeatherList(props) {
     const _fetchForecastData = async () => {
         try {
             let weatherInfo = await RequestHandler.getHourlyForecast({
-                lat: 41.8917707,
-                lon: 12.5412766
+                lat: props.location.latitude,
+                lon: props.location.longitude
             });
 
             const oNow = new Date();
@@ -42,8 +42,8 @@ export default function WeatherList(props) {
     const _fetchForecastWeekData = async () => {
         try {
             let weatherInfo = await RequestHandler.getDailyForecast({
-                lat: 41.8917707,
-                lon: 12.5412766
+                lat: props.location.latitude,
+                lon: props.location.longitude
             });
 
             weatherInfo = weatherInfo.data.filter((oForecast) => {
