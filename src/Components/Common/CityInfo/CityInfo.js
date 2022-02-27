@@ -9,7 +9,8 @@ export default function CityInfo(props) {
         return (
             <div className='city-info'>
                 <p className='city-name'>{cityName}</p>
-                <p className='state-name'>{countryName || "CALIFORNIA"}</p>
+                {countryName && countryName !== 'not-found' ? 
+                    <p className='state-name'>{countryName}</p> : null}
             </div>
         );
     }

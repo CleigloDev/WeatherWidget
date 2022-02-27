@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import RequestHandler from './modules/WeatherUtils/RequestHandler';
+import WeatherRequestHandler from './modules/WeatherUtils/WeatherRequestHandler';
+import LocationRequestHandler from './modules/LocationUtils/LocationRequestHandler';
 import LocationHandler from './modules/LocationUtils/LocationHandler';
 import { ContextManager } from './modules/ContextManager';
 
@@ -15,6 +16,7 @@ function App() {
 
   const [currentInfo, setCurrentInfo] = useState(null);
   const [userLocation, setCurrentLocation] = useState(null);
+  const [countryName, setCountryName] = useState("");
 
   useEffect(() => {
     _getUserLocation();
@@ -22,11 +24,24 @@ function App() {
 
   const _getCurrentWeatherInfo = async (location) => {
     try {
-      const currentInfo = await RequestHandler.getCurrentInfo({
+      const currentInfo = await WeatherRequestHandler.getCurrentInfo({
         lat: location.latitude,
         lon: location.longitude
       });
-      if (currentInfo && currentInfo.data && currentInfo.data[0]) setCurrentInfo(currentInfo.data[0]);
+        setCurrentInfo(currentInfo?.data[0]);
+        _getCurrentState(currentInfo?.data[0]?.city_name);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const _getCurrentState = async (sCityName) => {
+    try {
+      const currentState = await LocationRequestHandler.getCurrentState({
+        q: sCityName
+      });
+      const countryName = currentState?.items[0]?.address?.countryName;
+      setCountryName(countryName || 'not-found');
     } catch (error) {
       console.error(error);
     }
@@ -44,9 +59,14 @@ function App() {
 
   return (
     <div>
-      {currentInfo && userLocation ?
+      {currentInfo && userLocation && countryName ?
         <div className="main-div box-shadow">
-          <ContextManager.Provider value={{latitude: userLocation.latitude, longitude: userLocation.longitude, ...currentInfo}}>
+          <ContextManager.Provider value={{
+              countryName: countryName, 
+              latitude: userLocation.latitude, 
+              longitude: userLocation.longitude, 
+              ...currentInfo
+            }}>
             <Master />
             <Detail />
           </ContextManager.Provider>

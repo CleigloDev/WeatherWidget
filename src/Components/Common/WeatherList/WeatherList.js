@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 
-import RequestHandler from '../../../modules/WeatherUtils/RequestHandler';
+import WeatherRequestHandler from '../../../modules/WeatherUtils/WeatherRequestHandler';
 import Utils from '../../../modules/WeatherUtils/Utils';
 import { ContextManager } from '../../../modules/ContextManager';
 
@@ -26,7 +26,7 @@ export default function WeatherList() {
         const { latitude, longitude } = context;
 
         try {
-            let weatherInfo = await RequestHandler.getHourlyForecast({
+            let weatherInfo = await WeatherRequestHandler.getHourlyForecast({
                 lat: latitude,
                 lon: longitude
             });
@@ -50,7 +50,7 @@ export default function WeatherList() {
         const { latitude, longitude } = context;
 
         try {
-            let weatherInfo = await RequestHandler.getDailyForecast({
+            let weatherInfo = await WeatherRequestHandler.getDailyForecast({
                 lat: latitude,
                 lon: longitude
             });

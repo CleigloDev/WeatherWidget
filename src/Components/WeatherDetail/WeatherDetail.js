@@ -13,11 +13,11 @@ export default function WeatherDetail() {
 
     const render = () => {
 
-        const { city_name: cityName, temp } = contextManager;
+        const { city_name: cityName, temp, countryName } = contextManager;
 
         return (
             <div className='detail-main-div'>
-                <CityInfo cityName={cityName}/>
+                <CityInfo cityName={cityName} countryName={countryName}/>
                 <GeneralInfo temp={temp}/>
             </div>
         );
