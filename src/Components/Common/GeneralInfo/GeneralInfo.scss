@@ -1,6 +1,7 @@
 .general-info {
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
     height: 40%;
 }
 
@@ -30,10 +31,6 @@
 }
 
 @media screen and (max-width: 768px) {
-    .general-info {
-        display: flex;
-        flex-direction: column-reverse;
-    }
 
     .day-info {
         width: 100%;
