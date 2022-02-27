@@ -14,33 +14,28 @@ export default function WeatherList() {
     const [forecastInfo, setForecastInfo] = useState([]);
     const [foreCastWeek, setForecastWeekInfo] = useState([]);
     const [context, setContext] = useState(useContext(ContextManager));
-    
 
+    
     useEffect(() => {
         setContext(context);
 
         _fetchForecastData();
     }, []);
 
+
     const _fetchForecastData = async () => {
         const { latitude, longitude } = context;
 
         try {
+            const oNow = new Date();
+            const nHoursLeft =  25 - oNow.getHours();
             let weatherInfo = await WeatherRequestHandler.getHourlyForecast({
                 lat: latitude,
-                lon: longitude
+                lon: longitude,
+                hours: nHoursLeft
             });
 
-            const oNow = new Date();
-
-            weatherInfo = weatherInfo.data.filter((oForecast) => {
-                const oDateForecast = new Date(oForecast.timestamp_utc);
-                return true;
-                return oNow.toDateString() === oDateForecast.toDateString();
-            });
-
-            setForecastInfo(weatherInfo);
-
+            setForecastInfo(weatherInfo.data);
         } catch (error) {
             console.error(error);
         }
@@ -52,15 +47,11 @@ export default function WeatherList() {
         try {
             let weatherInfo = await WeatherRequestHandler.getDailyForecast({
                 lat: latitude,
-                lon: longitude
+                lon: longitude,
+                days: 7
             });
 
-            weatherInfo = weatherInfo.data.filter((oForecast) => {
-                return true;
-            });
-
-            setForecastWeekInfo(weatherInfo);
-
+            setForecastWeekInfo(weatherInfo.data);
         } catch (error) {
             console.error(error);
         }

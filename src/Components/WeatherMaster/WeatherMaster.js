@@ -17,12 +17,12 @@ export default function WeatherMaster() {
 
     const render = () => {
 
-        const { city_name: cityName, weather } = contextManager;
+        const { city_name: cityName, weather, countryName } = contextManager;
 
         return (
             <div className='master-main-div'>
                 <DynamicComponent mediaQuery={"(min-width:600px)"}>
-                    <CityInfo cityName={cityName}/>
+                    <CityInfo cityName={cityName} countryName={countryName}/>
                 </DynamicComponent>
                 <WeatherIcon weatherIcon={Utils.formatIcon(weather.code)}/>
                 <WeatherDescription description={weather.description}/>

@@ -1,16 +1,30 @@
+import { useState, useEffect } from 'react';
+
 import Utils from '../../../modules/WeatherUtils/Utils';
 
 import './GeneralInfo.scss';
 
 export default function GeneralInfo(props) {
 
+    const [now, setNow] = useState(null)
+
+
+    useEffect(() => {
+        setTimeout(() => {
+            const oNow = new Date();
+
+            setNow(oNow);
+        }, 1000);
+    }, [now])
+
+
     const _mapTime = () => {
-        const date = new Date();
+        const date = now || new Date();
         return Utils.formatTime(date);
     };
 
     const _mapDate = () => {
-        const date = new Date();
+        const date = now || new Date();
         return Utils.formatDateDetail(date);
     };
 
