@@ -1,7 +1,6 @@
 import './WeatherDescription.scss';
 
 export default function WeatherDescription(props) {
-    
 
     const render = () => {
         return (

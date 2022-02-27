@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import RequestHandler from './modules/WeatherUtils/RequestHandler';
 import LocationHandler from './modules/LocationUtils/LocationHandler';
+import { ContextManager } from './modules/ContextManager';
 
 import Master from './Components/WeatherMaster/WeatherMaster'
 import Detail from './Components/WeatherDetail/WeatherDetail'
@@ -43,8 +44,10 @@ function App() {
     <div>
       {currentInfo && userLocation ?
         <div className="main-div box-shadow">
-          <Master currentInfo={currentInfo} location={userLocation}/>
-          <Detail currentInfo={currentInfo} />
+          <ContextManager.Provider value={{latitude: userLocation.latitude, longitude: userLocation.longitude, ...currentInfo}}>
+            <Master />
+            <Detail />
+          </ContextManager.Provider>
         </div>
         : null
       }

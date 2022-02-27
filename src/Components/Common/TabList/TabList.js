@@ -18,7 +18,7 @@ export default function TabList(props) {
     };
 
     const _renderContent = (aTabs, nSelectedTab) => {
-        return aTabs[nSelectedTab].items.map((oItem, index) => {
+        return aTabs[nSelectedTab].items.map((oItem) => {
             return oItem;
         });
     };

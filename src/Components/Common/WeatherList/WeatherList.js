@@ -1,27 +1,34 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import RequestHandler from '../../../modules/WeatherUtils/RequestHandler';
 import Utils from '../../../modules/WeatherUtils/Utils';
+import { ContextManager } from '../../../modules/ContextManager';
 
 import ForecastItem from '../ForecastItem/ForecastItem';
 import TabList from '../TabList/TabList';
 
 import './WeatherList.scss';
 
-export default function WeatherList(props) {
+export default function WeatherList() {
 
     const [forecastInfo, setForecastInfo] = useState([]);
     const [foreCastWeek, setForecastWeekInfo] = useState([]);
+    const [context, setContext] = useState(useContext(ContextManager));
+    
 
     useEffect(() => {
+        setContext(context);
+
         _fetchForecastData();
     }, []);
 
     const _fetchForecastData = async () => {
+        const { latitude, longitude } = context;
+
         try {
             let weatherInfo = await RequestHandler.getHourlyForecast({
-                lat: props.location.latitude,
-                lon: props.location.longitude
+                lat: latitude,
+                lon: longitude
             });
 
             const oNow = new Date();
@@ -40,10 +47,12 @@ export default function WeatherList(props) {
     };
 
     const _fetchForecastWeekData = async () => {
+        const { latitude, longitude } = context;
+
         try {
             let weatherInfo = await RequestHandler.getDailyForecast({
-                lat: props.location.latitude,
-                lon: props.location.longitude
+                lat: latitude,
+                lon: longitude
             });
 
             weatherInfo = weatherInfo.data.filter((oForecast) => {
@@ -64,9 +73,9 @@ export default function WeatherList(props) {
                 items: forecastInfo.map((oForecastInfo, index) => {
                     if(index === 0) {
                         // prevent currentInfo to be different from forecast on now
-                        const { currentInfo } = props;
-                        const temperature = Utils.formatTemperature(currentInfo.temp);
-                        const icon = Utils.formatIcon(currentInfo.weather.code);
+                        const { temp, weather } = context;
+                        const temperature = Utils.formatTemperature(temp);
+                        const icon = Utils.formatIcon(weather.code);
 
                         return <ForecastItem
                             key={index}
