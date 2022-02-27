@@ -4,8 +4,10 @@ import RequestHandler from './modules/WeatherUtils/RequestHandler';
 import LocationHandler from './modules/LocationUtils/LocationHandler';
 import { ContextManager } from './modules/ContextManager';
 
-import Master from './Components/WeatherMaster/WeatherMaster'
-import Detail from './Components/WeatherDetail/WeatherDetail'
+import Master from './Components/WeatherMaster/WeatherMaster';
+import Detail from './Components/WeatherDetail/WeatherDetail';
+import Loader from './Components/Common/Loader/Loader';
+
 
 import './App.scss';
 
@@ -49,7 +51,7 @@ function App() {
             <Detail />
           </ContextManager.Provider>
         </div>
-        : null
+        : <Loader />
       }
     </div>
   );
