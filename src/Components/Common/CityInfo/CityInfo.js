@@ -10,7 +10,7 @@ export default function CityInfo(props) {
             <div className='city-info'>
                 <p className='city-name'>{cityName}</p>
                 {countryName && countryName !== 'not-found' ? 
-                    <p className='state-name'>{countryName}</p> : null}
+                    <p className='state-name'>{countryName.toUpperCase()}</p> : null}
             </div>
         );
     }
