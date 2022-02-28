@@ -1,3 +1,6 @@
+$cityNameColor: #122430; 
+$stateNameColor: #98C6E8;
+
 .city-info {
     display: flex;
     flex-direction: column;
@@ -9,13 +12,13 @@
 .city-name {
     font-size: 5vw;
     margin: 0;
-    color: #122430;
+    color: $cityNameColor;
 }
 
 .state-name {
     font-size: 2vw;
     margin: 0;
-    color: #98C6E8;
+    color: $stateNameColor;
 }
 
 @media screen and (max-width: 768px) {

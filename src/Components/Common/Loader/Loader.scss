@@ -1,3 +1,6 @@
+$whiteLoader: #f3f3f3;
+$blueLoader: #3498db;
+
 .loader-position {
     display: flex;
     flex-direction: column;
@@ -15,8 +18,8 @@
 }
 
 .loader {
-    border: 5px solid #f3f3f3; /* Light grey */
-    border-top: 5px solid #3498db; /* Blue */
+    border: 5px solid $whiteLoader;
+    border-top: 5px solid $blueLoader;
     border-radius: 50%;
     width: 30px;
     height: 30px;

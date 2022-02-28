@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import WeatherIcon from '../WeatherIcon/WeatherIcon';
 import './ForecastItem.scss';
 

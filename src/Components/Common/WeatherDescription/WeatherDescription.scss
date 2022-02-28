@@ -1,3 +1,5 @@
+$colorDescription: #9E9E9E;
+
 .weather-description {
     display: flex;
     flex-direction: row;
@@ -8,7 +10,7 @@
     > p {
         width: 50%;
         margin: 0;
-        color: #9E9E9E;
+        color: $colorDescription;
         font-size: 2.5vw;
         text-align: center;
     }

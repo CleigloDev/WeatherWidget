@@ -1,3 +1,5 @@
+$borderColor: #98C6E8;
+
 .tab-content {
     display: flex;
     flex-direction: column;
@@ -9,7 +11,7 @@
     flex-direction: row;
     border-bottom: 1px;
     border-bottom-style: solid;
-    border-bottom-color: #98C6E8;
+    border-bottom-color: $borderColor;
 
     > .tab-rendering {
         margin-left: 2rem;
@@ -22,7 +24,7 @@
     > .tab-selected {
         border-bottom: 4px;
         border-bottom-style: solid;
-        border-bottom-color: #98C6E8;
+        border-bottom-color: $borderColor;
     }
 }
 

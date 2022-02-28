@@ -1,6 +1,10 @@
-.forecast-item {
+.display-row {
     display: flex;
     flex-direction: row;
+}
+
+.forecast-item {
+    @extend .display-row;
     justify-content: space-between;
     align-items: center;
     margin-right: 3rem;
@@ -18,11 +22,10 @@
 }
 
 .weather-info-day {
-    display: flex;
-    width: 25%;
-    flex-direction: row;
+    @extend .display-row;
     justify-content: space-between;
     align-items: center;
+    width: 25%;
 
     > p {
         margin: 0;
