@@ -2,7 +2,7 @@ const RequestHandler = () => {
 
     const baseURL = 'https://api.weatherbit.io/v2.0/';
 
-    const key = 'f83ab038ece345b3829421d5a72e707f';
+    const key = '795a01ecb53c41409a07e11f54837a42';
 
     const getCurrentInfo = async(oQueryParams) => {
         let sRequestURL = _addQueryParams(`${baseURL}current?`, oQueryParams);
