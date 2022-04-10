@@ -1,6 +1,6 @@
 const RequestHandler = () => {
 
-    const baseURL = 'http://api.weatherbit.io/v2.0/';
+    const baseURL = 'https://api.weatherbit.io/v2.0/';
 
     const key = 'f83ab038ece345b3829421d5a72e707f';
 
